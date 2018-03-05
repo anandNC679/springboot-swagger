@@ -27,7 +27,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Product getProductById(Integer id) {
+    public Product getProductById(String id) {
         logger.debug("getProductById called");
         //System.out.println(productRepository.findById(id));
         Product p=productRepository.findOneById(id);
@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Integer id) {
+    public void deleteProduct(String id) {
         logger.debug("deleteProduct called");
         productRepository.deleteById(id);
     }

@@ -1,6 +1,5 @@
 package com.aks.swagger.swaggerexample.repositories;
 
-import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -10,9 +9,9 @@ import com.aks.swagger.swaggerexample.domain.Product;
 
 @RepositoryRestResource
 @Repository
-public interface ProductRepository extends CrudRepository<Product, Integer>{
+public interface ProductRepository extends CrudRepository<Product, String>{
 
-	Product findOneById(Integer id);
+	Product findOneById(String id);
 	//Optional<Product> findById(Integer id);
 
 }

@@ -3,14 +3,18 @@ package com.aks.swagger.swaggerexample.domain;
 import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.math.BigDecimal;
 
 @Entity
+@Document(collection = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @ApiModelProperty(notes = "The database generated product ID")
-    private Integer id;
+    private String id;
     @Version
     @ApiModelProperty(notes = "The auto-generated version of the product")
     private Integer version;
@@ -39,11 +43,11 @@ public class Product {
         this.version = version;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

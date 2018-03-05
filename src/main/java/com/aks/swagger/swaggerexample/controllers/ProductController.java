@@ -40,7 +40,7 @@ public class ProductController {
     }
     @ApiOperation(value = "Search a product with an ID",response = Product.class)
     @RequestMapping(value = "/show/{id}", method= RequestMethod.GET, produces = "application/json")
-    public Product showProduct(@PathVariable Integer id, Model model){
+    public Product showProduct(@PathVariable String id, Model model){
        Product product = productService.getProductById(id);
         return product;
     }
@@ -54,7 +54,7 @@ public class ProductController {
 
     @ApiOperation(value = "Update a product")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT, produces = "application/json")
-    public ResponseEntity updateProduct(@PathVariable Integer id, @RequestBody Product product){
+    public ResponseEntity updateProduct(@PathVariable String id, @RequestBody Product product){
         Product storedProduct = productService.getProductById(id);
         storedProduct.setDescription(product.getDescription());
         storedProduct.setImageUrl(product.getImageUrl());
@@ -65,7 +65,7 @@ public class ProductController {
 
     @ApiOperation(value = "Delete a product")
     @RequestMapping(value="/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
-    public ResponseEntity delete(@PathVariable Integer id){
+    public ResponseEntity delete(@PathVariable String id){
         productService.deleteProduct(id);
         return new ResponseEntity("Product deleted successfully", HttpStatus.OK);
 
